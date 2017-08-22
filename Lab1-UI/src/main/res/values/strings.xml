@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LabsCM20172</string>
+    <string name="Email_In">Correo</string>
+    <string name="Pass_In">Contraseña</string>
+</resources>
