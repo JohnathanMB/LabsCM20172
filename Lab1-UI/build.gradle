@@ -26,8 +26,8 @@ dependencies {
     })
 
 
-    compile 'com.android.support:appcompat-v7:25.1.0'
 
+    compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'gun0912.ted:tedbottompicker:1.0.12'
     compile 'com.android.support:recyclerview-v7:25.1.0'
     compile 'com.getbase:floatingactionbutton:1.2.1'
