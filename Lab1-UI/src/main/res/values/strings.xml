@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">LabsCM20172</string>
+
+    //Login
     <string name="Email_In">Correo</string>
     <string name="Pass_In">Contraseña</string>
+    <string name="lblRegistrar">Registrarse</string>
+    <string name="lblStart">Iniciar Sección</string>
+
+    //Regitrar
     <string name="btnPhotoText">Ingresar Foto</string>
     <string name="txtNombresReg">Digite Sus Nombres</string>
     <string name="txtApellidosReg">Digite Sus Apellidos</string>
@@ -11,4 +17,6 @@
     <string name="lblSexoReg">Sexo:</string>
     <string name="lblMasculino">Masculino</string>
     <string name="lblFemenino">Femenino</string>
+
+
 </resources>

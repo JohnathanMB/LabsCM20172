@@ -66,16 +66,19 @@
         <EditText
             android:id="@+id/txtNombres"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:ems="15"
             android:hint="@string/txtNombresReg"
             android:imeOptions="actionNext"
-            android:inputType="text" />
+            android:inputType="text"
+             />
 
         <EditText
             android:id="@+id/txtApellidos"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:ems="15"
@@ -130,6 +133,7 @@
         <EditText
             android:id="@+id/txtCorreo"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:ems="15"
@@ -140,6 +144,7 @@
         <EditText
             android:id="@+id/txtPass"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:ems="15"
@@ -150,6 +155,7 @@
         <EditText
             android:id="@+id/txtPass2"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:ems="15"
