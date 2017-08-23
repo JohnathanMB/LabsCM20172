@@ -9,6 +9,8 @@
 
     //Regitrar
     <string name="btnPhotoText">Ingresar Foto</string>
+    <string name="btnRegistrar">Registrar</string>
+
     <string name="txtNombresReg">Digite Sus Nombres</string>
     <string name="txtApellidosReg">Digite Sus Apellidos</string>
     <string name="txtCorreoReg">Digite Correo</string>
@@ -18,6 +20,9 @@
     <string name="lblMasculino">Masculino</string>
     <string name="lblFemenino">Femenino</string>
     <string name="txtFecha">Fecha De Nacimiento</string>
+    <string name="txtTel">Teléfono</string>
+    <string name="txtDir">Dirección</string>
+    <string name="txtCiudad">Ciudad</string>
 
 
 </resources>

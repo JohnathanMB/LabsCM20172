@@ -2,21 +2,49 @@ package co.edu.udea.compumovil.gr01_20172.labscm20172;
 
 import android.app.DatePickerDialog;
 
-import android.icu.util.Calendar;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.util.GregorianCalendar;
+
+import android.app.Dialog;
+import android.support.v4.app.DialogFragment;
+import android.app.DatePickerDialog;
+import android.widget.Button;
+import android.widget.DatePicker;
+
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
+
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
     private int año,mes,dia;
-    private EditText txtFecha;
+    private EditText txtFecha,
+            txtNombresReg,
+            txtApellidosReg,
+            txtCorreoReg,
+            txtPassReg,
+            txtpass2reg,
+            txtTel,
+            txtDir,
+            txtCiudad;
+
+    private Button btnPhotoText, btnRegistrar;
+    private RadioButton rgMasculino, rgFemenino;
+
+    /*
+    RadioButtons
+    <string name="lblMasculino">Masculino</string>
+    <string name="lblFemenino">Femenino</string>
+
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +59,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txtFecha:
-                Toast.makeText(this, "putazo" , Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "putazo" , Toast.LENGTH_LONG).show();
                 //Api > 23 :'(
-                //date();
+                date();
                 break;
         }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
+
     public void date(){
         final Calendar c = Calendar.getInstance();
         dia = c.get(Calendar.DAY_OF_MONTH);
@@ -48,11 +77,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                txtFecha.setText(dayOfMonth+"/"+(month)+"/"+year);
+                txtFecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
             }
         },dia,mes, año);
         datePickerDialog.show();
 
 
     }
+
+
 }
