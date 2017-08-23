@@ -17,6 +17,7 @@
     <string name="lblSexoReg">Sexo:</string>
     <string name="lblMasculino">Masculino</string>
     <string name="lblFemenino">Femenino</string>
+    <string name="txtFecha">Fecha De Nacimiento</string>
 
 
 </resources>
