@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">LabsCM20172</string>
-    <string name="Email_In">Correo000</string>
+    <string name="Email_In">Correo</string>
     <string name="Pass_In">Contraseña</string>
     <string name="btnPhotoText">Ingresar Foto</string>
+    <string name="txtNombresReg">Digite Sus Nombres</string>
+    <string name="txtApellidosReg">Digite Sus Apellidos</string>
+    <string name="txtCorreoReg">Digite Correo</string>
+    <string name="txtPassReg">Escriba Contraseña</string>
+    <string name="txtPass2Reg">Escriba Contraseña De nuevo</string>
+    <string name="lblSexoReg">Sexo:</string>
+    <string name="lblMasculino">Masculino</string>
+    <string name="lblFemenino">Femenino</string>
 </resources>
