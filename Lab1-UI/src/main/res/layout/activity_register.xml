@@ -18,19 +18,20 @@
             android:id="@+id/fotoPerfil"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginLeft="20dp"
+            android:layout_gravity="center_horizontal"
 
             app:srcCompat="@mipmap/ic_launcher" />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnPhoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="70dp"
 
-            android:text="@string/BtnPhoto" />
+            android:text="@string/btnPhotoText" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
