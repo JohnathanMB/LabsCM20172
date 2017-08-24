@@ -25,9 +25,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.lblRegistrar:
-                Toast.makeText(this, "puto", Toast.LENGTH_LONG).show();
-
                 toRegister();
+
                 break;
 
 

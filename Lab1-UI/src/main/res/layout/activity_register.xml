@@ -114,29 +114,33 @@
                         android:textSize="23dp" />
 
                     <RadioGroup
-
+                        android:id="@+id/radioG"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        >
 
                         <RadioButton
-                            android:id="@+id/radioButton"
+                            android:id="@+id/rbMasculino"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
                             android:text="@string/lblMasculino"
-                            android:textSize="20dp" />
+                            android:textSize="20dp"
+                            android:onClick="onRadioButtonClicked"
+                            />
 
                         <RadioButton
-                            android:id="@+id/radioButton2"
+                            android:id="@+id/rbFemenino"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:text="@string/lblFemenino"
-                            android:textSize="20dp" />
+                            android:textSize="20dp"
+                            android:onClick="onRadioButtonClicked"
+                            />
 
                     </RadioGroup>
 
@@ -211,10 +215,10 @@
                     android:layout_gravity="center"
                     android:ems="15"
                     android:hint="@string/txtCiudad"
-                    android:imeOptions="actionNext"
                     android:inputType="textAutoComplete" />
 
                 <Button
+                    android:id="@+id/btnReg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="15"
