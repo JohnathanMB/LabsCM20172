@@ -65,6 +65,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         layout = (ConstraintLayout) findViewById(R.id.activity_register);
         full = true;
 
+        txtNombresReg = (EditText) findViewById(R.id.txtNombres);
+        txtApellidosReg = (EditText) findViewById(R.id.txtApellidos);
+        txtCorreoReg = (EditText) findViewById(R.id.txtCorreo);
+        txtFecha = (EditText) findViewById(R.id.txtFecha);
+        txtPassReg = (EditText) findViewById(R.id.txtPass);
+        txtPass2reg = (EditText) findViewById(R.id.txtPass2);
+        txtTel = (EditText) findViewById(R.id.txtTel);
+        txtDir = (EditText) findViewById(R.id.txtDir);
+        txtCiudad = (EditText) findViewById(R.id.txtCiudad);
+
         rbMasculino = (RadioButton) findViewById(R.id.rbMasculino);
         rbFemenino = (RadioButton) findViewById(R.id.rbFemenino);
 
@@ -94,99 +104,102 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.txtFecha:
                 date();
-                txtFecha = (EditText) findViewById(R.id.txtFecha);
+
                 fecha = txtFecha.getText().toString();
-                if(fecha.isEmpty()==true){
+                if(fecha.equals("")){
+                    txtFecha.setError("Llenar Campo");
                     full = false;
                 }
                 Toast.makeText(this, fecha, Toast.LENGTH_SHORT).show();
 
-
+                //return;
                 break;
 
 
             case R.id.btnReg:
-                isComplete();
+                full = isComplete();
                 if(full==false){
                     Snackbar snackbar = Snackbar.make(layout, "REGISTRO INCOMPLETO", Snackbar.LENGTH_LONG);
                     snackbar.show();
                     break;
+                }else {
+                    Snackbar snackbar2 = Snackbar.make(layout, "REGISTRO COMPLETO", Snackbar.LENGTH_SHORT);
+                    snackbar2.show();
+                    break;
                 }
-                Snackbar snackbar2 = Snackbar.make(layout, "REGISTRO COMPLETO", Snackbar.LENGTH_SHORT);
-                snackbar2.show();
-
-
-
-                break;
         }
     }
 
-    public void isComplete(){
+    public Boolean isComplete(){
+        Boolean fullAux = true;
 
 
 
-        txtNombresReg = (EditText) findViewById(R.id.txtNombres);
+
         nombres = txtNombresReg.getText().toString();
-        if (nombres.isEmpty()==true){
-            full = false;
+        if (nombres.equals("")){
+            txtNombresReg.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, nombres, Toast.LENGTH_SHORT).show();
 
-        txtApellidosReg = (EditText) findViewById(R.id.txtApellidos);
+
         apellidos = txtApellidosReg.getText().toString();
-        if (apellidos.isEmpty()==true){
-            full = false;
+        if (apellidos.equals("")){
+            txtApellidosReg.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, apellidos, Toast.LENGTH_SHORT).show();
 
-        txtCorreoReg = (EditText) findViewById(R.id.txtCorreo);
+
         correo = txtCorreoReg.getText().toString();
-        if (correo.isEmpty()==true){
-            full = false;
+        if (correo.equals("")){
+            txtCorreoReg.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, correo, Toast.LENGTH_SHORT).show();
 
-        txtPassReg = (EditText) findViewById(R.id.txtPass);
+
         pass = txtPassReg.getText().toString();
-        if (pass.isEmpty()== true){
-            full = false;
+        if (pass.equals("")){
+            txtPassReg.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, pass, Toast.LENGTH_SHORT).show();
 
-        txtPass2reg = (EditText) findViewById(R.id.txtPass2);
+
         pass2 = txtPass2reg.getText().toString();
-        if (pass2.isEmpty()==true) {
-            full = false;
+        if (pass2.equals("")) {
+            txtPass2reg.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, pass2, Toast.LENGTH_SHORT).show();
 
-        txtTel = (EditText) findViewById(R.id.txtTel);
+
         tel = txtTel.getText().toString();
-        if (tel.isEmpty()==true) {
-            full = false;
+        if (tel.equals("")) {
+            txtTel.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, tel, Toast.LENGTH_SHORT).show();
 
-        txtDir = (EditText) findViewById(R.id.txtDir);
+
         dir = txtDir.getText().toString();
-        if (dir.isEmpty()==true) {
-            full = false;
+        if (dir.equals("")) {
+            txtDir.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, dir, Toast.LENGTH_SHORT).show();
 
-        txtCiudad = (EditText) findViewById(R.id.txtCiudad);
+
         ciudad = txtCiudad.getText().toString();
-        if (ciudad.isEmpty()==true){
-            full = false;
+        if (ciudad.equals("")){
+            txtCiudad.setError("Llenar Campo");
+            fullAux = false;
         }
         Toast.makeText(this, ciudad, Toast.LENGTH_SHORT).show();
 
-        /*
-        if(full == false){
-            return false;
-        }
-        return true;
-        */
+        return fullAux;
     }
 
 
@@ -228,9 +241,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
 
     public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
+
         boolean checked = ((RadioButton) view).isChecked();
-        // Check which radio button was clicked
+
         switch(view.getId()) {
             case R.id.rbMasculino:
                 if (checked)
