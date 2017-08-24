@@ -9,8 +9,12 @@ import java.text.DateFormat;
 import java.util.GregorianCalendar;
 
 import android.app.Dialog;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.app.DatePickerDialog;
+import android.text.Editable;
+import android.text.Layout;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -31,16 +35,19 @@ import static co.edu.udea.compumovil.gr01_20172.labscm20172.R.string.txtPass2Reg
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
-    private int año,mes,dia,tel;
+    private ConstraintLayout layout;
+    private int año,mes,dia;
+    private String nombres , apellidos, sexo,correo, fecha, pass, pass2, tel, dir, ciudad;
+    private Boolean full;
 
-    private ArrayList list;
+    private ArrayList list, keys;
 
     private EditText txtFecha,
             txtNombresReg,
             txtApellidosReg,
             txtCorreoReg,
-            txtPassReg,
             txtPass2reg,
+            txtPassReg,
             txtTel,
             txtDir,
             txtCiudad;
@@ -55,16 +62,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        txtFecha = (EditText) findViewById(R.id.txtFecha);
-        txtNombresReg = (EditText) findViewById(R.id.txtNombres);
-        txtApellidosReg = (EditText) findViewById(R.id.txtApellidos);
-        txtCorreoReg = (EditText) findViewById(R.id.txtCorreo);
-        txtPassReg = (EditText) findViewById(R.id.txtPass);
-        txtPass2reg = (EditText) findViewById(R.id.txtPass2);
-        txtTel = (EditText) findViewById(R.id.txtTel);
-        txtDir = (EditText) findViewById(R.id.txtDir);
-        txtCiudad = (EditText) findViewById(R.id.txtCiudad);
-
+        layout = (ConstraintLayout) findViewById(R.id.activity_register);
+        full = true;
 
         rbMasculino = (RadioButton) findViewById(R.id.rbMasculino);
         rbFemenino = (RadioButton) findViewById(R.id.rbFemenino);
@@ -75,22 +74,122 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
     }
 
+    private void keys(){
+        keys = new ArrayList();
+        keys.add("FOTO");
+        keys.add("NOMBRE");
+        keys.add("APELLIDO");
+        keys.add("SEXO");
+        keys.add("FECHA");
+        keys.add("TELEFONO");
+        keys.add("DIRECCION");
+        keys.add("CORREO");
+        keys.add("PASS");
+        keys.add("PASS2");
+        keys.add("CIUDAD");
+    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txtFecha:
                 date();
+                txtFecha = (EditText) findViewById(R.id.txtFecha);
+                fecha = txtFecha.getText().toString();
+                if(fecha.isEmpty()==true){
+                    full = false;
+                }
+                Toast.makeText(this, fecha, Toast.LENGTH_SHORT).show();
+
+
                 break;
+
+
             case R.id.btnReg:
-                //Todo lleno
+                isComplete();
+                if(full==false){
+                    Snackbar snackbar = Snackbar.make(layout, "REGISTRO INCOMPLETO", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                    break;
+                }
+                Snackbar snackbar2 = Snackbar.make(layout, "REGISTRO COMPLETO", Snackbar.LENGTH_SHORT);
+                snackbar2.show();
+
 
 
                 break;
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void isComplete(){
+
+
+
+        txtNombresReg = (EditText) findViewById(R.id.txtNombres);
+        nombres = txtNombresReg.getText().toString();
+        if (nombres.isEmpty()==true){
+            full = false;
+        }
+        Toast.makeText(this, nombres, Toast.LENGTH_SHORT).show();
+
+        txtApellidosReg = (EditText) findViewById(R.id.txtApellidos);
+        apellidos = txtApellidosReg.getText().toString();
+        if (apellidos.isEmpty()==true){
+            full = false;
+        }
+        Toast.makeText(this, apellidos, Toast.LENGTH_SHORT).show();
+
+        txtCorreoReg = (EditText) findViewById(R.id.txtCorreo);
+        correo = txtCorreoReg.getText().toString();
+        if (correo.isEmpty()==true){
+            full = false;
+        }
+        Toast.makeText(this, correo, Toast.LENGTH_SHORT).show();
+
+        txtPassReg = (EditText) findViewById(R.id.txtPass);
+        pass = txtPassReg.getText().toString();
+        if (pass.isEmpty()== true){
+            full = false;
+        }
+        Toast.makeText(this, pass, Toast.LENGTH_SHORT).show();
+
+        txtPass2reg = (EditText) findViewById(R.id.txtPass2);
+        pass2 = txtPass2reg.getText().toString();
+        if (pass2.isEmpty()==true) {
+            full = false;
+        }
+        Toast.makeText(this, pass2, Toast.LENGTH_SHORT).show();
+
+        txtTel = (EditText) findViewById(R.id.txtTel);
+        tel = txtTel.getText().toString();
+        if (tel.isEmpty()==true) {
+            full = false;
+        }
+        Toast.makeText(this, tel, Toast.LENGTH_SHORT).show();
+
+        txtDir = (EditText) findViewById(R.id.txtDir);
+        dir = txtDir.getText().toString();
+        if (dir.isEmpty()==true) {
+            full = false;
+        }
+        Toast.makeText(this, dir, Toast.LENGTH_SHORT).show();
+
+        txtCiudad = (EditText) findViewById(R.id.txtCiudad);
+        ciudad = txtCiudad.getText().toString();
+        if (ciudad.isEmpty()==true){
+            full = false;
+        }
+        Toast.makeText(this, ciudad, Toast.LENGTH_SHORT).show();
+
+        /*
+        if(full == false){
+            return false;
+        }
+        return true;
+        */
+    }
+
+
 
     public void date(){
         final Calendar c = Calendar.getInstance();
@@ -103,11 +202,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 txtFecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
             }
-        },dia,mes, año);
+        },dia ,mes ,año);
         datePickerDialog.show();
 
 
     }
+
+
 
     /*
     public ArrayList toList(){
@@ -133,10 +234,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         switch(view.getId()) {
             case R.id.rbMasculino:
                 if (checked)
+                    sexo= "Masculino";
                     Toast.makeText(this, "Todo un Machote!", Toast.LENGTH_LONG).show();
                     break;
             case R.id.rbFemenino:
                 if (checked)
+                    sexo = "Femenino";
                     Toast.makeText(this, "Toda una MachotA!", Toast.LENGTH_LONG).show();
                     break;
         }
